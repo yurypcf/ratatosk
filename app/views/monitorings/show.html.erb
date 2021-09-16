@@ -1,0 +1,26 @@
+<body>
+  <div class="monitoring-info">
+    <h1><strong><%= @monitoring.service_title %></strong></h1>
+    <p><strong>Status</strong>: 
+    <% if @monitoring.status? %>
+      ✔️DISPONÍVEL
+    <% else %>
+      ❌INDISPONÍVEL
+    <% end %>
+    </p>
+    <h5><%= link_to @monitoring.service_address, @monitoring.service_address %></h5>
+    <% if !@monitoring.status %>
+    <br>
+      <p><strong>Motivo</strong>: <%= @monitoring.warning_message %></p>
+    <% end %>
+  </div>
+
+  <% if can? :switch_status, Monitoring %>
+    <div class="monitoring-admin-resources">
+      <%= button_to "Alternar Status", switch_status_path(@monitoring), method: :put %>  
+      <%= button_to "Editar", edit_monitoring_path(@monitoring), method: :get %>      
+    </div>
+  <% end %>
+
+  <h6><%= link_to "Página Principal", root_path %><h6>
+</body>

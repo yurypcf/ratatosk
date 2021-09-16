@@ -1,0 +1,40 @@
+
+<nav class="nav-index">
+  <p>
+    Logado como: <strong><%= current_user.email %></strong>.
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  </p>
+</nav>
+
+<div class="table-container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Serviço</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @monitorings.each do |monitoring| %>
+        <tr>
+          <td scope="row"><%= link_to monitoring.service_title, monitoring %></td>
+          <td scope="row"><%= link_to monitoring.service_address, monitoring %></td>
+          <td scope="row">
+            <% if monitoring.status? %>
+              ✔️DISPONÍVEL
+            <% else %>
+              ❌INDISPONÍVEL
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<% if current_user.admin? %>
+  <div class="button-area">
+    <%= button_to "Nova Monitoria", new_monitoring_path, method: :get %>
+  </div>
+<% end %>

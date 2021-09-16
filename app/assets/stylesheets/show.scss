@@ -1,0 +1,23 @@
+$rain: #2C3845;
+$primary: #0275d8;
+
+.monitoring-admin-resources {
+	padding: 8px;
+	display: flex;
+	input {
+		margin: 8px;
+	}
+}
+
+h6 {
+	padding: 16px;
+}
+
+a {
+	text-decoration: underline;
+	color: whitesmoke;
+}
+
+a:hover {
+	color: $primary;
+}

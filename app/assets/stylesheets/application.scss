@@ -1,0 +1,32 @@
+@import "bootstrap";
+@import "index";
+@import "show";
+
+$rain: #2C3845;
+
+body {
+  background-color: darken($rain, 10%);
+  color: lightgray;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: darken($rain, 15%);
+  color: lighten(#505050, 10%);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+p {
+  font-size: 2vh;
+}
+
+.monitoring-info {
+	padding: 16px 0px 8px 16px;
+  width: 30%;
+}

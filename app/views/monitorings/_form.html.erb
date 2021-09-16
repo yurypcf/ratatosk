@@ -1,0 +1,31 @@
+
+<div class="form-group">
+  <%= form_with model: monitoring do |form| %>
+    <div>
+      <%= form.label "Título do Serviço" %><br>
+      <%= form.text_field :service_title, :class => "form-control" %>
+      <% monitoring.errors.full_messages_for(:service_title).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label "Endereço do Serviço" %><br>
+      <%= form.text_field :service_address, :class => "form-control" %><br>
+      <% monitoring.errors.full_messages_for(:service_address).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.label "Mensagem de Indisponibilidade (opcional)" %><br>
+      <%= form.text_area :warning_message, :class => "form-control" %><br>
+      <% monitoring.errors.full_messages_for(:warning_message).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.submit "Submeter" %>
+    </div>
+  <% end %>
+</div>
